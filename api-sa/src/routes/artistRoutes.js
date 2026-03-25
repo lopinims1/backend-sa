@@ -1,29 +1,38 @@
-const express = require('express')
-const router = express.Router()
-const artistServices = require('../services/artistServices')
+import express from 'express'
+const route = express.Router()
+import { artistServices } from '../services/artistServices.js'
 
-router.get('/', (req, res) => {
-    res.json(artistServices.getAll()) 
-})
+route.get('/', (req, res) => {
+    res.json(artistServices.getAll())
+});
 
-router.get('/:id', (req, res) => {
+route.get('/:id', (req, res) => {
     const artist = artistServices.getById(req.params.id)
-    if (!artist) return res.status(404).json({ message: artist.error })
+
+    if (!artist) {
+        return res.status(404).json({ message: artist.error })
+    }
     res.json(artist)
-})
+});
 
-router.get('/:id/albuns', (req, res) => {
+route.get('/:id/albuns', (req, res) => {
     const artist = artistServices.getById(req.params.id)
-    if (!artist) return res.status(404).json({message: artist.error})
+
+    if (!artist) {
+        return res.status(404).json({ message: artist.error })
+    }
     res.json(artist.albuns)
-})
+});
 
-router.get('/:artistId/albuns/:albumId', (req, res) => {
+route.get('/:artistId/albuns/:albumId', (req, res) => {
     const tracks = artistServices.getTracks(req.params.artistId, req.params.albumId)
-    if (!tracks) return res.status(404).json({message: tracks.error})
-        res.json(tracks)
-})
+
+    if (!tracks) {
+        return res.status(404).json({ message: tracks.error })
+    }
+    res.json(tracks)
+});
 
 
 
-module.exports = router
+export default route;

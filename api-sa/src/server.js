@@ -1,15 +1,14 @@
-const express = require('express');
-
-const artistRoute = require('./routes/artistRoutes');
+import express from 'express';
+import route from './routes/artistRoutes.js';
 
 const app = express();
 const port = 3000;
 
-app.get('/', (res) => {
-    res.send('No routes here');
+app.get('/', (req, res) => {
+    res.json('No routes here');
 });
 
-app.use('/artists', artistRoute);
+app.use('/artists', route);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);

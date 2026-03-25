@@ -78,7 +78,14 @@ const artists = [
                 ]
             },
         ],
+    },
+
+    {
+        id: 3,
+        name: 'Fabio Brazza',
+        genre: 'Boombap',
+        
     }
 ]
 
-module.exports = artists;
+export default artists;

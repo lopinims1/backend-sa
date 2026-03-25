@@ -1,27 +1,32 @@
-const artists = require('../data/artists');
+import artists from '../data/artists.js'
 
-const getAll = () => artists
+class ArtistServices {
+    getAll() {
+        return artists
+    }
 
-const getById = (id) => artists.find(a => a.id === parseInt(id))
+    getById(id) {
+      return artists.find((artist) => artist.id === parseInt(id))  
+    } 
 
-const getAlbuns = (artistId) => {
-    const artist = getById(artistId)
-    if (!artist) return { error: 'Artist not found' }
-    return artist.albuns
-}
+    
+    // Corrigir depois
+    getAlbuns = (artistId) => {
+        const artist = getById(artistId)
+        if (!artist) return { error: 'Artist not found' }
+        return artist.albuns
+    }
 
-const getTracks = (artistId, albumId) => {
-    const artist = getById(artistId)
-    if (!artist) return { error: 'Artist not found' }
-    const album = artist.albuns.find(a => a.id === parseInt(albumId))
-    if (!album) return { error: 'Album not found' }
+    getTracks = (artistId, albumId) => {
+        const artist = getById(artistId)
+        if (!artist) return { error: 'Artist not found' }
+
+        const album = artist.albuns.find(a => a.id === parseInt(albumId))
+
+        if (!album) return { error: 'Album not found' }
         return album.tracks
+    }
+
 }
 
-module.exports = {
-    getAll,
-    getById,
-    getAlbuns,
-    getTracks
-}
-
+export const artistServices = new ArtistServices()
