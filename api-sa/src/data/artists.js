@@ -84,6 +84,28 @@ const artists = [
         id: 3,
         name: 'Fabio Brazza',
         genre: 'Boombap',
+        albuns: [
+            {
+                id: 1,
+                title: 'Isso não é um disco de Rap',
+                year: 2020,
+                producer: 'Vamo Music Hub',
+                tracks: [
+                    { id: 1, title: 'Centauros', duration: '4:10' },
+                    { id: 2, title: 'Plágio', duration: '3:15' },
+                    { id: 3, title: 'Tá na Veia', duration: '3:21' },
+                    { id: 4, title: 'Vislumbre', duration: '4:04' },
+                    { id: 5, title: 'Tattoo', duration: '3:09' },
+                    { id: 6, title: 'Meias Palavras', duration: '2:36' },
+                    { id: 7, title: 'Armados de Poesia', duration: '3:24' },
+                    { id: 8, title: 'Só Uma Noite', duration: '3:50' },
+                    { id: 9, title: 'De Volta para o Passado', duration: '4:59' },
+                    { id: 10, title: 'Boto Fé', duration: '3:09' },
+                    { id: 11, title: 'Inquilino da Dor', duration: '3:57' },
+                    { id: 12, title: 'Toda Gratidão', duration: '3:24' },
+                ]
+            }
+        ]
         
     }
 ]
